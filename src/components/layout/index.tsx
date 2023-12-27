@@ -1,17 +1,14 @@
 import { NextPage } from "next";
 import { ReactNode } from "react";
-import { Raleway, Titillium_Web } from "next/font/google";
-import styles from "@/styles/Home.module.scss";
+import { Raleway } from "next/font/google";
 import Head from "next/head";
 import Link from "next/link";
-import Fork from "@/assets/icons/fork";
 import layoutStyles from "./layout.module.scss";
+import Image from "next/image";
+import Logo from "@/assets/images/logo.svg";
+import { FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 
 const raleway = Raleway({ subsets: ["latin"] });
-const titillium = Titillium_Web({
-  weight: "600",
-  subsets: ["latin"],
-});
 
 type Children = {
   children: ReactNode;
@@ -26,33 +23,37 @@ const GeneralLayout: NextPage<Children> = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={`${styles.main} ${raleway.className}`}>
-        <header className={layoutStyles.header}>
+      <div className={`${layoutStyles.container} ${raleway.className}`}>
+        <div className={layoutStyles.sidebar}>
           <div className={layoutStyles.logo}>
-            <h1 className={titillium.className}>ForkCasted</h1>
-            <Fork />
+            <Image src={Logo} alt="app logo" />
           </div>
           <nav>
             <ul>
               <Link href="/">
-                <li>HOME</li>
+                <li>Home</li>
               </Link>
               <Link href="/recipes">
-                <li>RECIPES</li>
+                <li>Recipes</li>
               </Link>
               <Link href="#">
-                <li>ARTICLES</li>
+                <li>Articles</li>
               </Link>
               <Link href="#">
-                <li>NEWSLETTER</li>
+                <li>Newsletter</li>
               </Link>
               <Link href="#">
-                <li>ABOUT</li>
+                <li>About</li>
               </Link>
             </ul>
           </nav>
-          <input type="text" placeholder="SEARCH..." />
-        </header>
+
+          <div className={layoutStyles.socials}>
+            <FaTwitter />
+            <FaLinkedinIn />
+            <FaInstagram />
+          </div>
+        </div>
         <main className={layoutStyles.main}>{children}</main>
       </div>
     </>
