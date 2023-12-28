@@ -1,7 +1,14 @@
 import HeroCard from "@/components/hero-card";
 import HomeStyles from "../styles/Home.module.scss";
-import Chicken from "../assets/images/chicken.jpg";
+import Chicken from "../assets/images/chicken.webp";
+import Breakfast from "../assets/images/breakfast.webp";
+import Pasta from "../assets/images/pasta.webp";
+import Vegan from "../assets/images/vegan.jpg";
+import Sides from "../assets/images/sides.webp";
 import Image from "next/image";
+import { Urbanist } from "next/font/google";
+
+const urbanist = Urbanist({ subsets: ["latin"], weight: "500" });
 
 export default function Home() {
   return (
@@ -10,46 +17,54 @@ export default function Home() {
         <video className={HomeStyles.video} autoPlay muted loop>
           <source src="/assets/videos/food-video.mp4" type="video/mp4" />
         </video>
+        <div className={HomeStyles.overlay}></div>
 
         <div className={HomeStyles.heroContent}>
-          <h1>Recipes That Speak to Your Taste Buds</h1>
-          <p>
-            Indulge in a world of flavors with our carefully crafted recipes.
-          </p>
-        </div>
-      </div>
+          <h1 className={urbanist.className}>
+            Recipes That Speak to Your Taste Buds.
+          </h1>
 
-      <div className={HomeStyles.mainContent}>
-        <div className={HomeStyles.categories}>
-          <div className={HomeStyles.categoryWrapper}>
-            <div>
-              <Image src={Chicken} alt="Chicken" />
-            </div>
-            <p>Breakfast</p>
+          {/* Search bar */}
+          <div className={HomeStyles.searchBar}>
+            <input type="text" placeholder="Search for recipes" />
+            {/* <button>Search</button> */}
           </div>
-          <div className={HomeStyles.categoryWrapper}>
-            <div>
-              <Image src={Chicken} alt="Chicken" />
+
+          <div className={HomeStyles.categories}>
+            <div className={HomeStyles.categoryWrapper}>
+              <div>
+                <Image src={Breakfast} alt="Breakfast" />
+              </div>
+              <p>Breakfast</p>
             </div>
-            <p>Pasta</p>
-          </div>
-          <div className={HomeStyles.categoryWrapper}>
-            <div>
-              <Image src={Chicken} alt="Chicken" />
+
+            <div className={HomeStyles.categoryWrapper}>
+              <div>
+                <Image src={Pasta} alt="Pasta" />
+              </div>
+              <p>Pasta</p>
             </div>
-            <p>Vegetarian</p>
-          </div>
-          <div className={HomeStyles.categoryWrapper}>
-            <div>
-              <Image src={Chicken} alt="Chicken" />
+
+            <div className={HomeStyles.categoryWrapper}>
+              <div>
+                <Image src={Vegan} alt="Vegan" />
+              </div>
+              <p>Vegan</p>
             </div>
-            <p>Dessert</p>
-          </div>
-          <div className={HomeStyles.categoryWrapper}>
-            <div>
-              <Image src={Chicken} alt="Chicken" />
+
+            <div className={HomeStyles.categoryWrapper}>
+              <div>
+                <Image src={Sides} alt="Sides" />
+              </div>
+              <p>Sides</p>
             </div>
-            <p>Starters</p>
+
+            <div className={HomeStyles.categoryWrapper}>
+              <div>
+                <Image src={Chicken} alt="Chicken" />
+              </div>
+              <p>Chicken</p>
+            </div>
           </div>
         </div>
       </div>
