@@ -9,13 +9,15 @@
     "lint": "next lint"
   },
   "dependencies": {
-    "@tanstack/react-query": "^5.14.1",
+    "@tanstack/react-query": "^5.15.5",
+    "lottie-web": "^5.12.2",
     "next": "14.0.3",
     "react": "^18",
     "react-dom": "^18",
     "react-icons": "^4.12.0"
   },
   "devDependencies": {
+    "@tanstack/eslint-plugin-query": "^5.14.6",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
