@@ -1,0 +1,104 @@
+.container {
+  overflow-y: auto;
+  height: 100vh;
+}
+
+.categoriesNav {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 0.5rem;
+  margin-bottom: 2rem;
+  padding: 1rem 0;
+  list-style: none;
+
+  a {
+    text-decoration: none;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    border-radius: 0.5rem;
+    transition: all 0.2s ease-in-out;
+
+    li {
+      margin: 0 0.5rem;
+    }
+
+    &:hover {
+      color: #ff8a15;
+      font-weight: 600;
+    }
+  }
+}
+
+.hero {
+  position: relative;
+  width: 100%;
+  height: 90vh;
+  color: white;
+  background-size: cover;
+  background-position: center;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+  }
+
+  &::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 150px;
+    background: url("data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSIyNTkiIHZpZXdCb3g9IjAgMCAxNDQwIDI1OSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgMzVMNjAgNTFDMTIwIDY3IDI0MCA5OSAzNjAgMTI1LjdDNDgwIDE1MiA2MDAgMTc0IDcyMCAxNjguM0M4NDAgMTYzIDk2MCAxMzEgMTA4MCAxMDkuN0MxMjAwIDg4IDEzMjAgNzggMTM4MCA3Mi4zTDE0NDAgNjdWMjU5SDEzODBDMTMyMCAyNTkgMTIwMCAyNTkgMTA4MCAyNTlDOTYwIDI1OSA4NDAgMjU5IDcyMCAyNTlDNjAwIDI1OSA0ODcgMjU5IDM2NyAyNTlDMjQ3IDI1OSAxMjAgMjU0IDYwIDI1NEgwVjM1WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTAgMEw2MCAxNkMxMjAgMzIgMjQwIDY0IDM2MCA5MC43QzQ4MCAxMTcgNjAwIDEzOSA3MjAgMTMzLjNDODQwIDEyOCA5NjAgOTYgMTA4MCA3NC43QzEyMDAgNTMgMTMyMCA0MyAxMzgwIDM3LjNMMTQ0MCAzMlYyNTZIMTM4MEMxMzIwIDI1NiAxMjAwIDI1NiAxMDgwIDI1NkM5NjAgMjU2IDg0MCAyNTYgNzIwIDI1NkM2MDAgMjU2IDQ4MCAyNTYgMzYwIDI1NkMyNDAgMjU2IDEyMCAyNTYgNjAgMjU2SDBWMFoiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuNSIvPgo8L3N2Zz4K");
+    background-repeat: repeat-x;
+    background-size: cover;
+    z-index: 5;
+  }
+}
+
+.heroContent {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+
+  > div {
+    padding-left: 3rem;
+
+    h1 {
+      font-size: 4rem;
+      font-weight: 700;
+      text-align: left;
+      margin-bottom: 1rem;
+    }
+
+    p {
+      font-size: 1.2rem;
+      font-weight: 500;
+      text-align: left;
+      width: 70%;
+      line-height: 1.5;
+    }
+  }
+}
+
+.recipesGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  padding: 1rem 0;
+  padding-right: 1rem;
+  list-style: none;
+  height: max-content;
+
+  a {
+    text-decoration: none;
+    color: black;
+  }
+}

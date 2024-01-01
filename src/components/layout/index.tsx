@@ -7,6 +7,7 @@ import layoutStyles from "./layout.module.scss";
 import Image from "next/image";
 import Logo from "@/assets/images/logo.svg";
 import { FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
+import { useRouter } from "next/router";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -15,6 +16,9 @@ type Children = {
 };
 
 const GeneralLayout: NextPage<Children> = ({ children }) => {
+  const router = useRouter();
+  const activeRoute = router.pathname;
+
   return (
     <>
       <Head>
@@ -30,21 +34,23 @@ const GeneralLayout: NextPage<Children> = ({ children }) => {
           </div>
           <nav>
             <ul>
-              <Link href="/">
-                <li>Home</li>
-              </Link>
-              <Link href="/recipes">
-                <li>Recipes</li>
-              </Link>
-              <Link href="#">
-                <li>Articles</li>
-              </Link>
-              <Link href="#">
-                <li>Newsletter</li>
-              </Link>
-              <Link href="#">
-                <li>About</li>
-              </Link>
+              <NavLink href="/" text="Home" activeRoute={activeRoute} />
+              <NavLink
+                href="/recipes"
+                text="Recipes"
+                activeRoute={activeRoute}
+              />
+              <NavLink
+                href="/articles"
+                text="Articles"
+                activeRoute={activeRoute}
+              />
+              <NavLink
+                href="/newsletter"
+                text="Newsletter"
+                activeRoute={activeRoute}
+              />
+              <NavLink href="/about" text="About" activeRoute={activeRoute} />
             </ul>
           </nav>
 
@@ -61,3 +67,19 @@ const GeneralLayout: NextPage<Children> = ({ children }) => {
 };
 
 export default GeneralLayout;
+
+const NavLink = ({
+  href,
+  text,
+  activeRoute,
+}: {
+  href: string;
+  text: string;
+  activeRoute: string;
+}) => (
+  <Link href={href}>
+    <li className={activeRoute === href ? layoutStyles.active : undefined}>
+      {text}
+    </li>
+  </Link>
+);

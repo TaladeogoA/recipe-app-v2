@@ -26,13 +26,12 @@
   position: absolute;
   top: -2rem;
   left: 0;
-  padding-left: 4rem;
-  width: 80%;
+  padding-left: 2rem;
   height: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  align-items: flex-start;
+  align-items: center;
   gap: 2rem;
   text-align: left;
   color: white;
@@ -41,6 +40,7 @@
     width: 100%;
     font-size: 5rem;
     font-weight: 700;
+    text-align: center;
   }
 }
 
@@ -67,6 +67,10 @@
     &:hover {
       transform: scale(1.05);
       cursor: pointer;
+
+      p {
+        font-weight: 600;
+      }
     }
 
     div {

@@ -45,7 +45,7 @@
           transition: all 0.2s ease-in-out;
 
           &:hover {
-            color: #ff6432;
+            color: #ff8a15;
             font-weight: 600;
           }
         }
@@ -63,11 +63,17 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  color: #ff6432;
+  color: #ff8a15;
 }
 
 .main {
   width: calc(100% - 12rem);
+  height: 100vh;
   margin-left: 12rem;
   overflow-y: hidden;
+}
+
+.active {
+  color: #ff8a15;
+  font-weight: 700;
 }

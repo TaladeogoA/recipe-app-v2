@@ -5,8 +5,10 @@ import Breakfast from "../assets/images/breakfast.webp";
 import Pasta from "../assets/images/pasta.webp";
 import Vegan from "../assets/images/vegan.jpg";
 import Sides from "../assets/images/sides.webp";
+import Beef from "../assets/images/beef.webp";
 import Image from "next/image";
 import { Urbanist } from "next/font/google";
+import Link from "next/link";
 
 const urbanist = Urbanist({ subsets: ["latin"], weight: "500" });
 
@@ -21,7 +23,8 @@ export default function Home() {
 
         <div className={HomeStyles.heroContent}>
           <h1 className={urbanist.className}>
-            Recipes That Speak to Your Taste Buds.
+            Recipes That Speak <br />
+            to Your Taste Buds.
           </h1>
 
           {/* Search bar */}
@@ -31,40 +34,59 @@ export default function Home() {
           </div>
 
           <div className={HomeStyles.categories}>
-            <div className={HomeStyles.categoryWrapper}>
-              <div>
-                <Image src={Breakfast} alt="Breakfast" />
+            <Link href="/categories/breakfast">
+              <div className={HomeStyles.categoryWrapper}>
+                <div>
+                  <Image src={Breakfast} alt="Breakfast" />
+                </div>
+                <p>Breakfast</p>
               </div>
-              <p>Breakfast</p>
-            </div>
+            </Link>
 
-            <div className={HomeStyles.categoryWrapper}>
-              <div>
-                <Image src={Pasta} alt="Pasta" />
+            <Link href="/categories/pasta">
+              <div className={HomeStyles.categoryWrapper}>
+                <div>
+                  <Image src={Pasta} alt="Pasta" />
+                </div>
+                <p>Pasta</p>
               </div>
-              <p>Pasta</p>
-            </div>
+            </Link>
 
-            <div className={HomeStyles.categoryWrapper}>
-              <div>
-                <Image src={Vegan} alt="Vegan" />
+            <Link href="/categories/vegan">
+              <div className={HomeStyles.categoryWrapper}>
+                <div>
+                  <Image src={Vegan} alt="Vegan" />
+                </div>
+                <p>Vegan</p>
               </div>
-              <p>Vegan</p>
-            </div>
+            </Link>
 
-            <div className={HomeStyles.categoryWrapper}>
-              <div>
-                <Image src={Sides} alt="Sides" />
+            <Link href="/categories/side">
+              <div className={HomeStyles.categoryWrapper}>
+                <div>
+                  <Image src={Sides} alt="Sides" />
+                </div>
+                <p>Sides</p>
               </div>
-              <p>Sides</p>
-            </div>
+            </Link>
 
-            <div className={HomeStyles.categoryWrapper}>
-              <div>
-                <Image src={Chicken} alt="Chicken" />
+            <Link href="/categories/chicken">
+              <div className={HomeStyles.categoryWrapper}>
+                <div>
+                  <Image src={Chicken} alt="Chicken" />
+                </div>
+                <p>Chicken</p>
               </div>
-              <p>Chicken</p>
-            </div>
+            </Link>
+
+            <Link href="/categories/beef">
+              <div className={HomeStyles.categoryWrapper}>
+                <div>
+                  <Image src={Beef} alt="Beef" />
+                </div>
+                <p>Beef</p>
+              </div>
+            </Link>
           </div>
         </div>
       </div>
