@@ -11,6 +11,7 @@
   background: white;
   display: flex;
   flex-direction: column;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
 
   .logo {
     width: 100%;
@@ -45,7 +46,7 @@
           transition: all 0.2s ease-in-out;
 
           &:hover {
-            color: #ff8a15;
+            color: #9e6332;
             font-weight: 600;
           }
         }
@@ -63,7 +64,7 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  color: #ff8a15;
+  color: #9e6332;
 }
 
 .main {
@@ -74,7 +75,7 @@
 }
 
 .active {
-  color: #ff8a15;
+  color: #9e6332;
   font-weight: 700;
 }
 
@@ -134,7 +135,7 @@
       padding: 0.5rem 0;
       border-radius: 5px;
       border: none;
-      background-color: #ff8a15;
+      background-color: #9e6332;
       color: white;
       font-size: 1rem;
       font-weight: 700;

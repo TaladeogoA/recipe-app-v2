@@ -2,7 +2,6 @@
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 0.5rem;
   list-style: none;
   background-color: #fff;
   box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
@@ -12,7 +11,8 @@
   position: sticky;
   top: 1rem;
   left: 50%;
-  transform: translateX(-30%);
+  transform: translateX(-33%);
+  z-index: 100;
 
   a {
     text-decoration: none;
@@ -27,7 +27,7 @@
     }
 
     &:hover {
-      color: #ff8a15;
+      color: #9e6332;
       font-weight: 600;
     }
   }
