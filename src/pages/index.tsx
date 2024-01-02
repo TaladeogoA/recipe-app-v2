@@ -34,7 +34,7 @@ export default function Home() {
           </div>
 
           <div className={HomeStyles.categories}>
-            <Link href="/categories/breakfast">
+            <Link href="/recipes/category/breakfast">
               <div className={HomeStyles.categoryWrapper}>
                 <div>
                   <Image src={Breakfast} alt="Breakfast" />
@@ -43,7 +43,7 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link href="/categories/pasta">
+            <Link href="/recipes/category/pasta">
               <div className={HomeStyles.categoryWrapper}>
                 <div>
                   <Image src={Pasta} alt="Pasta" />
@@ -52,7 +52,7 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link href="/categories/vegan">
+            <Link href="/recipes/category/vegan">
               <div className={HomeStyles.categoryWrapper}>
                 <div>
                   <Image src={Vegan} alt="Vegan" />
@@ -61,7 +61,7 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link href="/categories/side">
+            <Link href="/recipes/category/side">
               <div className={HomeStyles.categoryWrapper}>
                 <div>
                   <Image src={Sides} alt="Sides" />
@@ -70,7 +70,7 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link href="/categories/chicken">
+            <Link href="/recipes/category/chicken">
               <div className={HomeStyles.categoryWrapper}>
                 <div>
                   <Image src={Chicken} alt="Chicken" />
@@ -79,7 +79,7 @@ export default function Home() {
               </div>
             </Link>
 
-            <Link href="/categories/beef">
+            <Link href="/recipes/category/beef">
               <div className={HomeStyles.categoryWrapper}>
                 <div>
                   <Image src={Beef} alt="Beef" />
