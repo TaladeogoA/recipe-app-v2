@@ -29,6 +29,7 @@ const Category = () => {
 
   return (
     <div className={CategoryStyles.container}>
+      <CategoriesNav currentCategory={category as string} />
       <div
         className={CategoryStyles.hero}
         style={{
@@ -36,8 +37,6 @@ const Category = () => {
         }}
       >
         <div className={CategoryStyles.heroContent}>
-          <CategoriesNav currentCategory={category as string} />
-
           <div>
             <h1 className={urbanist.className}>
               {currentCategory.name} Recipes

@@ -36,7 +36,7 @@ const TabItem = ({
         alignItems: "center",
         gap: "5px",
         fontWeight: isActive ? "700" : "400",
-        color: isActive ? "#ff8a15" : "#000",
+        color: isActive ? "#9E6332" : "#000",
       }}
     >
       <p>{name}</p>

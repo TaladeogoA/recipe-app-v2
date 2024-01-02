@@ -4,11 +4,15 @@ import { useRouter } from "next/router";
 import RecipeStyles from "./single-recipe.module.scss";
 import Image from "next/image";
 import CategoriesNav from "@/components/categories-nav";
+import { IoTimer } from "react-icons/io5";
+import { GiSpoon } from "react-icons/gi";
+import { IoIosHourglass } from "react-icons/io";
+import { useState } from "react";
 
 const SingleRecipe = () => {
+  const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
   const router = useRouter();
   const { mealId } = router.query;
-
   const { data, isLoading, isError } = useQuery({
     queryKey: ["recipe", mealId],
     queryFn: async () => {
@@ -19,7 +23,7 @@ const SingleRecipe = () => {
     enabled: !!mealId,
   });
 
-  if (isLoading) {
+  if (isLoading || !data) {
     return <Loading />;
   }
 
@@ -30,37 +34,114 @@ const SingleRecipe = () => {
   const recipe = data?.meals[0];
   console.log(recipe);
 
+  const formatInstructions = (instructions: string | undefined) => {
+    if (!instructions) return [];
+    return instructions
+      .split("\r\n")
+      .filter((instruction: string) => instruction.trim() !== "")
+      .map((instruction: string, index: number) => {
+        const cleanedInstruction = instruction.replace(/^\d+\)\s*|^\d+\s/, "");
+        return {
+          number: index + 1,
+          text: cleanedInstruction,
+        };
+      });
+  };
+
+  const generateShoppingList = () => {
+    const uncheckedItems = Object.keys(recipe).filter(
+      (key) =>
+        key.includes("strIngredient") && recipe[key] && !checkedItems[key]
+    );
+    const shoppingList = uncheckedItems.map((key) => recipe[key]).join("\n");
+
+    const blob = new Blob([shoppingList], { type: "text/plain" });
+    const url = URL.createObjectURL(blob);
+
+    const link = document.createElement("a");
+    link.href = url;
+    link.download = `${recipe?.strMeal}-shopping-list.txt`;
+    link.click();
+    URL.revokeObjectURL(url);
+  };
+
   return (
     <div className={RecipeStyles.container}>
-      <CategoriesNav currentCategory={recipe.strCategory.toLowerCase()} />
+      <CategoriesNav currentCategory={recipe?.strCategory?.toLowerCase()} />
       <div className={RecipeStyles.hero}>
         <Image
-          src={recipe.strMealThumb}
-          alt={recipe.strMeal}
+          src={recipe?.strMealThumb}
+          alt={recipe?.strMeal}
           width={100}
           height={100}
         />
-        <div>
-          <p>
-            {recipe.strArea} | {recipe.strCategory}
-          </p>
-          <h1>{recipe.strMeal}</h1>
+        <div className={RecipeStyles.heroContent}>
+          <div className={RecipeStyles.tags}>
+            <span>{recipe?.strArea}</span>
+            <span>•</span>
+            <span>{recipe?.strCategory}</span>
+          </div>
+          <h1>{recipe?.strMeal}</h1>
+          <div className={RecipeStyles.stats}>
+            <div>
+              <IoTimer />
+              <span>{Math.floor(Math.random() * 20) + 8} minutes to prep</span>
+            </div>
+            <div>
+              <GiSpoon />
+              <span>Serves {Math.floor(Math.random() * 5) + 1} portions</span>
+            </div>
+            <div>
+              <IoIosHourglass />
+              <span>
+                Can be stored for {Math.floor(Math.random() * 2) + 1} day(s)
+              </span>
+            </div>
+          </div>
         </div>
-        C
       </div>
-      <div className={RecipeStyles.ingredients}>
-        <h2>Ingredients</h2>
-        <ul>
-          {Object.keys(recipe)
-            .filter((key) => key.includes("strIngredient") && recipe[key])
-            .map((key) => (
-              <li key={key}>{recipe[key]}</li>
-            ))}
-        </ul>
-      </div>
-      <div className={RecipeStyles.instructions}>
-        <h2>Instructions</h2>
-        <p>{recipe.strInstructions}</p>
+      <div className={RecipeStyles.content}>
+        <div className={RecipeStyles.ingredients}>
+          <h2>Ingredients</h2>
+          <ul>
+            {Object.keys(recipe)
+              .filter((key) => key.includes("strIngredient") && recipe[key])
+              .map((key) => (
+                <li key={key}>
+                  <input
+                    type="checkbox"
+                    name={key}
+                    id={key}
+                    onChange={(e) => {
+                      setCheckedItems({
+                        ...checkedItems,
+                        [key]: e.target.checked,
+                      });
+                    }}
+                  />
+                  <label htmlFor={key}>{recipe[key]}</label>
+                </li>
+              ))}
+          </ul>
+
+          <p>
+            <strong>Tip: </strong>
+            Select the ingredients you already have. You can then generate a
+            shopping list of the ones you don&apos;t have!
+          </p>
+          <button onClick={generateShoppingList}>Generate shopping list</button>
+        </div>
+        <div className={RecipeStyles.instructions}>
+          <h2>Instructions</h2>
+          {formatInstructions(recipe?.strInstructions).map((instruction) => (
+            <div key={instruction.number} className={RecipeStyles.instruction}>
+              <div className={RecipeStyles.number}>
+                Step {instruction.number}
+              </div>
+              <p className={RecipeStyles.text}>{instruction.text}</p>
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

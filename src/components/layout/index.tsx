@@ -5,10 +5,10 @@ import Head from "next/head";
 import Link from "next/link";
 import layoutStyles from "./layout.module.scss";
 import Image from "next/image";
-import Logo from "@/assets/images/logo.svg";
 import { FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { useRouter } from "next/router";
 import CookieIcon from "@/assets/icons/cookie.svg";
+import NewLogo from "@/assets/images/new-logo.svg";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -51,7 +51,7 @@ const GeneralLayout: NextPage<Children> = ({ children }) => {
         )}
         <div className={layoutStyles.sidebar}>
           <div className={layoutStyles.logo}>
-            <Image src={Logo} alt="app logo" />
+            <Image src={NewLogo} alt="app logo" />
           </div>
           <nav>
             <ul>
