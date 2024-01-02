@@ -1,5 +1,5 @@
 import { NextPage } from "next";
-import { ReactNode } from "react";
+import { ReactNode, useState } from "react";
 import { Raleway } from "next/font/google";
 import Head from "next/head";
 import Link from "next/link";
@@ -8,6 +8,7 @@ import Image from "next/image";
 import Logo from "@/assets/images/logo.svg";
 import { FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { useRouter } from "next/router";
+import CookieIcon from "@/assets/icons/cookie.svg";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -19,6 +20,8 @@ const GeneralLayout: NextPage<Children> = ({ children }) => {
   const router = useRouter();
   const activeRoute = router.pathname;
 
+  const [showModal, setShowModal] = useState(false);
+
   return (
     <>
       <Head>
@@ -28,6 +31,24 @@ const GeneralLayout: NextPage<Children> = ({ children }) => {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div className={`${layoutStyles.container} ${raleway.className}`}>
+        <div
+          className={layoutStyles.cookieButton}
+          onClick={() => setShowModal(true)}
+        >
+          <Image src={CookieIcon} width={35} height={35} alt="accept cookies" />
+        </div>
+        {showModal && (
+          <div className={layoutStyles.modal}>
+            <div className={layoutStyles.modalContent}>
+              <h2>No Cookies Here! 🍪</h2>
+              <p>
+                Just me having a bit of fun! I drew that cute cookie SVG and
+                thought it would be fun to add it to the site.
+              </p>
+              <button onClick={() => setShowModal(false)}>Ciao!</button>
+            </div>
+          </div>
+        )}
         <div className={layoutStyles.sidebar}>
           <div className={layoutStyles.logo}>
             <Image src={Logo} alt="app logo" />

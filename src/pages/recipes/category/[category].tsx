@@ -2,11 +2,11 @@ import Loading from "@/components/loading";
 import { useQuery } from "@tanstack/react-query";
 import { useRouter } from "next/router";
 import CategoryStyles from "./category.module.scss";
-import Link from "next/link";
 import { Urbanist } from "next/font/google";
 const urbanist = Urbanist({ subsets: ["latin"], weight: "500" });
 import { categories } from "@/data/constants";
 import RecipeCard from "@/components/recipe-card";
+import CategoriesNav from "@/components/categories-nav";
 
 const Category = () => {
   const router = useRouter();
@@ -36,16 +36,7 @@ const Category = () => {
         }}
       >
         <div className={CategoryStyles.heroContent}>
-          <ul className={CategoryStyles.categoriesNav}>
-            {categories.map(({ name, value }) => (
-              <TabItem
-                key={name}
-                name={name}
-                isActive={value === category}
-                value={value}
-              />
-            ))}
-          </ul>
+          <CategoriesNav currentCategory={category as string} />
 
           <div>
             <h1 className={urbanist.className}>
@@ -70,36 +61,3 @@ const Category = () => {
 };
 
 export default Category;
-
-const TabItem = ({
-  name,
-  isActive,
-  value,
-}: {
-  name: string;
-  isActive: boolean;
-  value: string;
-}) => (
-  <Link href={`/categories/${value}`}>
-    <li
-      style={{
-        display: "flex",
-        flexDirection: "column",
-        alignItems: "center",
-        gap: "5px",
-        fontWeight: isActive ? "bold" : "normal",
-      }}
-    >
-      <p>{name}</p>
-      <div
-        style={{
-          height: "10px",
-          width: "10px",
-          borderRadius: "50%",
-          backgroundColor: "#ff8a15",
-          display: isActive ? "block" : "none",
-        }}
-      ></div>
-    </li>
-  </Link>
-);
