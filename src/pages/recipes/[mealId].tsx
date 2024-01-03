@@ -8,6 +8,8 @@ import { IoTimer } from "react-icons/io5";
 import { GiSpoon } from "react-icons/gi";
 import { IoIosHourglass } from "react-icons/io";
 import { useState } from "react";
+import Link from "next/link";
+import { RiArrowRightDoubleLine } from "react-icons/ri";
 
 const SingleRecipe = () => {
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
@@ -32,13 +34,17 @@ const SingleRecipe = () => {
   }
 
   const recipe = data?.meals[0];
-  console.log(recipe);
 
   const formatInstructions = (instructions: string | undefined) => {
     if (!instructions) return [];
     return instructions
       .split("\r\n")
-      .filter((instruction: string) => instruction.trim() !== "")
+      .filter((instruction: string) => {
+        const trimmedInstruction = instruction.trim();
+        return (
+          trimmedInstruction !== "" && !trimmedInstruction.startsWith("STEP")
+        );
+      })
       .map((instruction: string, index: number) => {
         const cleanedInstruction = instruction.replace(/^\d+\)\s*|^\d+\s/, "");
         return {
@@ -141,6 +147,15 @@ const SingleRecipe = () => {
               <p className={RecipeStyles.text}>{instruction.text}</p>
             </div>
           ))}
+        </div>
+      </div>
+      <div className={RecipeStyles.recommended}>
+        <div className={RecipeStyles.header}>
+          <h2>You might also like</h2>
+          <Link href="/recipes">
+            <p>See more recipes</p>
+            <RiArrowRightDoubleLine />
+          </Link>
         </div>
       </div>
     </div>

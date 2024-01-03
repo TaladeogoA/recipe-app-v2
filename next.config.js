@@ -7,7 +7,13 @@ const nextConfig = {
     includePaths: [path.join(__dirname, "styles")],
   },
   images: {
-    domains: ["www.themealdb.com"],
+    remotePatterns: [
+      {
+        protocol: "https",
+        hostname: "www.themealdb.com",
+        pathname: "**",
+      },
+    ],
   },
 };
 
