@@ -10,6 +10,7 @@ import { IoIosHourglass } from "react-icons/io";
 import { useState } from "react";
 import Link from "next/link";
 import { RiArrowRightDoubleLine } from "react-icons/ri";
+import RecommendedCard from "@/components/recipe-card/recommended";
 
 const SingleRecipe = () => {
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
@@ -25,12 +26,24 @@ const SingleRecipe = () => {
     enabled: !!mealId,
   });
 
-  if (isLoading || !data) {
-    return <Loading />;
-  }
+  const category = data?.meals[0]?.strCategory;
 
-  if (isError) {
-    return <div>Error</div>;
+  const {
+    data: recommendedData,
+    isLoading: recommendedisLoading,
+    isError: recommendedIsError,
+  } = useQuery({
+    queryKey: ["category", category],
+    queryFn: async () => {
+      const res = await fetch(`
+      ${process.env.NEXT_PUBLIC_API_URL}/filter.php?c=${category}`);
+      return res.json();
+    },
+    enabled: !!category,
+  });
+
+  if (isLoading || !data || recommendedisLoading || !recommendedData) {
+    return <Loading />;
   }
 
   const recipe = data?.meals[0];
@@ -156,6 +169,19 @@ const SingleRecipe = () => {
             <p>See more recipes</p>
             <RiArrowRightDoubleLine />
           </Link>
+        </div>
+        <div className={RecipeStyles.recipesGrid}>
+          {recommendedData?.meals
+            .filter((meal: any) => meal.idMeal !== mealId)
+            .slice(0, 3)
+            .map((meal: any) => (
+              <RecommendedCard
+                key={meal.idMeal}
+                idMeal={meal.idMeal}
+                strMealThumb={meal.strMealThumb}
+                strMeal={meal.strMeal}
+              />
+            ))}
         </div>
       </div>
     </div>
