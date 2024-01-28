@@ -12,7 +12,7 @@ const Category = () => {
   const router = useRouter();
   const { category } = router.query;
 
-  const { data, isLoading, isError } = useQuery({
+  const { data, isLoading } = useQuery({
     queryKey: ["category", category],
     queryFn: async () => {
       const res = await fetch(`
@@ -23,7 +23,7 @@ const Category = () => {
   });
 
   const currentCategory = categories.find(({ value }) => value === category);
-  if (isError || !currentCategory) {
+  if (!currentCategory) {
     return <div>Error</div>;
   }
 

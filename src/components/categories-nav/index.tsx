@@ -4,16 +4,18 @@ import { categories } from "@/data/constants";
 
 const CategoriesNav = ({ currentCategory }: { currentCategory: string }) => {
   return (
-    <ul className={CategoryStyles.categoriesNav}>
-      {categories.map(({ name, value }) => (
-        <TabItem
-          key={name}
-          name={name}
-          isActive={value === currentCategory}
-          value={value}
-        />
-      ))}
-    </ul>
+    <nav className={CategoryStyles.navContainer}>
+      <ul className={CategoryStyles.categoriesNav}>
+        {categories.map(({ name, value }) => (
+          <TabItem
+            key={name}
+            name={name}
+            isActive={value === currentCategory}
+            value={value}
+          />
+        ))}
+      </ul>
+    </nav>
   );
 };
 

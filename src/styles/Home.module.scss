@@ -112,18 +112,21 @@
   }
 
   button {
-    width: 3rem;
+    padding: 0 1rem;
     height: 3rem;
     border-radius: 0.5rem;
     border: none;
-    background: #f1f1f1;
+    background: #9e6332;
+    color: white;
+    font-size: 1.2rem;
+    font-weight: 500;
     display: flex;
     justify-content: center;
     align-items: center;
     transition: all 0.3s ease-in-out;
 
     &:hover {
-      background: #e1e1e1;
+      background: #8a5a2b;
       cursor: pointer;
     }
   }

@@ -30,7 +30,7 @@ export default function Home() {
           {/* Search bar */}
           <div className={HomeStyles.searchBar}>
             <input type="text" placeholder="Search for recipes" />
-            {/* <button>Search</button> */}
+            <button>Search</button>
           </div>
 
           <div className={HomeStyles.categories}>

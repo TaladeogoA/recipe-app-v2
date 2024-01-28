@@ -8,7 +8,7 @@ import Image from "next/image";
 import { FaTwitter, FaLinkedinIn, FaInstagram } from "react-icons/fa";
 import { useRouter } from "next/router";
 import CookieIcon from "@/assets/icons/cookie.svg";
-import NewLogo from "@/assets/images/new-logo.svg";
+import Logo from "@/assets/images/logo.svg";
 
 const raleway = Raleway({ subsets: ["latin"] });
 
@@ -51,7 +51,7 @@ const GeneralLayout: NextPage<Children> = ({ children }) => {
         )}
         <div className={layoutStyles.sidebar}>
           <div className={layoutStyles.logo}>
-            <Image src={NewLogo} alt="app logo" />
+            <Image src={Logo} alt="app logo" />
           </div>
           <nav>
             <ul>

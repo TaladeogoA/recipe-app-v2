@@ -11,6 +11,7 @@ import { useState } from "react";
 import Link from "next/link";
 import { RiArrowRightDoubleLine } from "react-icons/ri";
 import RecommendedCard from "@/components/recipe-card/recommended";
+import Footer from "@/components/footer";
 
 const SingleRecipe = () => {
   const [checkedItems, setCheckedItems] = useState<Record<string, boolean>>({});
@@ -184,6 +185,7 @@ const SingleRecipe = () => {
             ))}
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
