@@ -61,16 +61,6 @@ const GeneralLayout: NextPage<Children> = ({ children }) => {
                 text="Recipes"
                 activeRoute={activeRoute}
               />
-              <NavLink
-                href="/articles"
-                text="Articles"
-                activeRoute={activeRoute}
-              />
-              <NavLink
-                href="/newsletter"
-                text="Newsletter"
-                activeRoute={activeRoute}
-              />
               <NavLink href="/about" text="About" activeRoute={activeRoute} />
             </ul>
           </nav>

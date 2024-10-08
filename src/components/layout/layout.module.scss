@@ -46,7 +46,7 @@
           transition: all 0.2s ease-in-out;
 
           &:hover {
-            color: #9e6332;
+            color: #80d489;
             font-weight: 600;
           }
         }
@@ -64,7 +64,7 @@
   justify-content: center;
   align-items: center;
   gap: 1rem;
-  color: #9e6332;
+  color: #80d489;
 }
 
 .main {
@@ -75,7 +75,7 @@
 }
 
 .active {
-  color: #9e6332;
+  color: #80d489;
   font-weight: 700;
 }
 
@@ -135,7 +135,7 @@
       padding: 0.5rem 0;
       border-radius: 5px;
       border: none;
-      background-color: #9e6332;
+      background-color: #80d489;
       color: white;
       font-size: 1rem;
       font-weight: 700;
