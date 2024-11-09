@@ -1,6 +1,6 @@
 import { NextPage } from "next";
 import { ReactNode, useState } from "react";
-import { Raleway } from "next/font/google";
+import { Raleway, Inter } from "next/font/google";
 import Head from "next/head";
 import Link from "next/link";
 import layoutStyles from "./layout.module.scss";
@@ -11,6 +11,7 @@ import CookieIcon from "@/assets/icons/cookie.svg";
 import Logo from "@/assets/images/logo.svg";
 
 const raleway = Raleway({ subsets: ["latin"] });
+const inter = Inter({ subsets: ["latin"] });
 
 type Children = {
   children: ReactNode;
@@ -30,26 +31,8 @@ const GeneralLayout: NextPage<Children> = ({ children }) => {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <div className={`${layoutStyles.container} ${raleway.className}`}>
-        <div
-          className={layoutStyles.cookieButton}
-          onClick={() => setShowModal(true)}
-        >
-          <Image src={CookieIcon} width={35} height={35} alt="accept cookies" />
-        </div>
-        {showModal && (
-          <div className={layoutStyles.modal}>
-            <div className={layoutStyles.modalContent}>
-              <h2>No Cookies Here! 🍪</h2>
-              <p>
-                Just me having a bit of fun! I drew that cute cookie SVG and
-                thought it would be fun to add it to the site.
-              </p>
-              <button onClick={() => setShowModal(false)}>Ciao!</button>
-            </div>
-          </div>
-        )}
-        <div className={layoutStyles.sidebar}>
+      <div className={`${layoutStyles.container} ${inter.className}`}>
+        {/* <div className={layoutStyles.sidebar}>
           <div className={layoutStyles.logo}>
             <Image src={Logo} alt="app logo" />
           </div>
@@ -70,6 +53,31 @@ const GeneralLayout: NextPage<Children> = ({ children }) => {
             <FaLinkedinIn />
             <FaInstagram />
           </div>
+        </div> */}
+        <div className={layoutStyles.navbar}>
+          <div className={layoutStyles.navContainer}>
+            <div className={layoutStyles.logo}>
+              <Image src={Logo} alt="app logo" />
+              <p>forkcasted</p>
+            </div>
+
+            <nav className={layoutStyles.navItems}>
+              <ul>
+                <NavLink href="/" text="home" activeRoute={activeRoute} />
+                <NavLink
+                  href="/recipes"
+                  text="recipes"
+                  activeRoute={activeRoute}
+                />
+                <NavLink href="/about" text="about" activeRoute={activeRoute} />
+              </ul>
+            </nav>
+          </div>
+
+          <div className={layoutStyles.searchContainer}>
+            <input type="text" placeholder="Search for recipes" />
+            <button>Search</button>
+          </div>
         </div>
         <main className={layoutStyles.main}>{children}</main>
       </div>
@@ -89,8 +97,6 @@ const NavLink = ({
   activeRoute: string;
 }) => (
   <Link href={href}>
-    <li className={activeRoute === href ? layoutStyles.active : undefined}>
-      {text}
-    </li>
+    <li>{text}</li>
   </Link>
 );

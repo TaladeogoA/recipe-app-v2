@@ -1,5 +1,5 @@
 .container {
-  display: flex;
+  padding-inline: 7rem;
 }
 
 .sidebar {
@@ -146,5 +146,75 @@
         opacity: 0.8;
       }
     }
+  }
+}
+
+.navbar {
+  width: 100%;
+  height: 8rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding-inline: 2rem;
+  background-color: white;
+  box-shadow: 0 0 0.5rem rgba(0, 0, 0, 0.1);
+
+  .navContainer {
+    display: flex;
+    gap: 3rem;
+    align-items: center;
+    width: 50%;
+
+    .logo {
+      display: flex;
+      gap: 0.5rem;
+      align-items: center;
+
+      img {
+        width: 3rem;
+      }
+
+      p {
+        font-size: 1.7rem;
+        font-weight: 500;
+      }
+    }
+
+    .navItems {
+      display: flex;
+      gap: 2rem;
+      font-size: 1.2rem;
+
+      ul {
+        display: flex;
+        gap: 1.2rem;
+        list-style: none;
+        width: 100%;
+        padding: 0;
+        margin: 0;
+
+        a {
+          text-decoration: none;
+          color: black;
+
+          li {
+            padding: 0.5rem 0;
+            width: 100%;
+            text-align: center;
+            cursor: pointer;
+            transition: all 0.2s ease-in-out;
+
+            &:hover {
+              color: #80d489;
+              font-weight: 600;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  .searchContainer {
+    
   }
 }

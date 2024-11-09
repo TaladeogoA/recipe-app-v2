@@ -7,7 +7,7 @@
   margin-top: -4rem;
   position: relative;
   width: 100%;
-  height: 85vh;
+  height: 60vh;
   color: white;
   background-size: cover;
   background-position: center;
@@ -28,7 +28,7 @@
     position: absolute;
     bottom: 0;
     width: 100%;
-    height: 170px;
+    height: 180px;
     background: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTQ0MCIgaGVpZ2h0PSIzMTIiIHZpZXdCb3g9IjAgMCAxNDQwIDMxMiIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTAgODRMNDggNzMuM0M5NiA2MyAxOTIgNDEgMjg4IDMwLjdDMzg0IDIwIDQ4MCAyMCA1NzYgNTcuM0M2NzIgOTUgNzY4IDE2OSA4NjQgMTkwLjdDOTYwIDIxMiAxMDU2IDE4MCAxMTUyIDE0Mi43QzEyNDggMTA1IDEzNDQgNjMgMTM5MiA0MS4zTDE0NDAgMjBWMzEySDEzOTJDMTM0NCAzMTIgMTI0OCAzMTIgMTE1MiAzMTJDMTA1NiAzMTIgOTYwIDMxMiA4NjQgMzEyQzc2OCAzMTIgNjcyIDMxMiA1NzYgMzEyQzQ4MCAzMTIgMzg0IDMxMiAyODggMzEyQzE5MiAzMTIgOTYgMzEyIDQ4IDMxMkgwVjg0WiIgZmlsbD0id2hpdGUiLz4KPHBhdGggZD0iTTAgNjRMNDggNTMuM0M5NiA0MyAxOTIgMjEgMjg4IDEwLjdDMzg0IC0yLjg2MTAyZS0wNiA0ODAgMy44MTQ3ZS0wNiA1NzYgMzcuM0M2NzIgNzUgNzY4IDE0OSA4NjQgMTcwLjdDOTYwIDE5MiAxMDU2IDE2MCAxMTUyIDEyMi43QzEyNDggODUgMTM0NCA0MyAxMzkyIDIxLjNMMTQ0MCAwVjIyNEgxMzkyQzEzNDQgMjI0IDEyNDggMjI0IDExNTIgMjI0QzEwNTYgMjI0IDk2MCAyMjQgODY0IDIyNEM3NjggMjI0IDY3MiAyMjQgNTc2IDIyNEM0ODAgMjI0IDM4NCAyMjQgMjg4IDIyNEMxOTIgMjI0IDk2IDIyNCA0OCAyMjRIMFY2NFoiIGZpbGw9IndoaXRlIiBmaWxsLW9wYWNpdHk9IjAuNSIvPgo8L3N2Zz4K);
     background-repeat: repeat-x;
     background-size: cover;
@@ -43,7 +43,7 @@
   z-index: 2;
 
   > div {
-    padding-left: 3rem;
+    padding-left: 5rem;
     padding-top: 10rem;
 
     h1 {
