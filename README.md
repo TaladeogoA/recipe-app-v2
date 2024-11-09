@@ -1,17 +1,8 @@
-# ForkCasted
-
-ForkCasted is a Next.js-based web application that allows users to browse and discover various recipes across different categories.
-
-## Features
-
-- Browse recipes by categories (Breakfast, Pasta, Vegan, Sides, Chicken, Beef, etc.)
-- Search functionality for finding specific recipes
-- Detailed view for each recipe category
-- Responsive design for various devices
+This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
 
-To run the development server:
+First, run the development server:
 
 ```bash
 npm run dev
@@ -19,31 +10,31 @@ npm run dev
 yarn dev
 # or
 pnpm dev
+# or
+bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the application.
+Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-## Project Structure
+You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
 
-- `pages/`: Contains the main pages of the application
-  - `index.tsx`: Home page with category overview
-  - `recipes/category/[category].tsx`: Dynamic page for each recipe category
-- `components/`: Reusable React components (e.g., HeroCard, Loading, CategoriesNav)
-- `styles/`: CSS modules for styling (e.g., Home.module.scss, category.module.scss)
-- `assets/`: Static assets like images
+[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
 
-## Technologies Used
+The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
 
-- [Next.js](https://nextjs.org/): React framework for production
-- [React](https://reactjs.org/): JavaScript library for building user interfaces
-- [TypeScript](https://www.typescriptlang.org/): Typed superset of JavaScript
-- [React Query](https://react-query.tanstack.com/): For managing server state
-- [SASS](https://sass-lang.com/): For enhanced CSS styling
+This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
 
-## Environment Variables
+## Learn More
 
-The project uses the following environment variable:
+To learn more about Next.js, take a look at the following resources:
 
-- `NEXT_PUBLIC_API_URL`: The base URL for the recipe API
+- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
+- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
 
-Ensure this is set in your `.env.local` file or deployment environment.
+You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+
+## Deploy on Vercel
+
+The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+
+Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
